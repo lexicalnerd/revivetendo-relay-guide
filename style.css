@@ -469,16 +469,14 @@ a.btn-discord:hover {
   overflow: visible !important;
 }
 
-/* Feature cards with outer corner Miis: absolute positioning prevents wide title words from being pushed below Mii, h3 reserves 75px breathing room, and p flows full 100% width below */
+/* Feature cards with outer corner Miis: float layout wraps upper lines (simplified titles & top p lines) next to body, and lets lower text flow across 100% width below shoes with zero empty column */
 .feature-card.has-mii {
   position: relative;
   overflow: visible !important;
 }
 
 .feature-card.has-mii h3 {
-  padding-right: 75px;
-  min-height: 56px;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
 }
 
 .feature-card.has-mii p {
@@ -486,11 +484,14 @@ a.btn-discord:hover {
 }
 
 .mii-card-corner {
-  position: absolute;
-  right: -24px;
-  top: -42px;
-  height: 155px;
+  float: right;
+  margin-top: -42px;
+  margin-right: -24px;
+  margin-left: 16px;
+  margin-bottom: 4px;
+  height: 160px;
   width: auto;
+  position: relative;
   z-index: 10;
   filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.65));
   pointer-events: none;
