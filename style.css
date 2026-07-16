@@ -419,6 +419,30 @@ a.btn-discord:hover {
   animation-delay: calc(var(--animation-order) * 0.25s);
 }
 
+/* Staggered entrance for all content appearing AFTER title word drop completes (~1.08s) */
+@keyframes staggerFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(22px);
+    visibility: hidden;
+  }
+  1% {
+    visibility: visible;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+}
+
+.stagger-in {
+  opacity: 0;
+  visibility: hidden;
+  animation: staggerFadeUp 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(1.08s + var(--stagger-order, 0) * 0.14s);
+}
+
 .hero-description {
   font-size: 1.2rem;
   color: var(--text-muted);
