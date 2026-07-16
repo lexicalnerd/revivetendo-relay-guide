@@ -445,15 +445,19 @@ a.btn-discord:hover {
   overflow: visible !important;
 }
 
-/* Feature cards with outer corner Miis: reserve title padding ONLY so text never touches Mii, leaving paragraphs full width with zero vertical gap */
+/* Feature cards with outer corner Miis: reserve 90px right padding on BOTH title and paragraph so text wraps cleanly and zero words are blocked */
 .feature-card.has-mii {
   position: relative;
   overflow: visible !important;
 }
 
+.feature-card.has-mii h3,
+.feature-card.has-mii p {
+  padding-right: 90px;
+}
+
 .feature-card.has-mii h3 {
-  padding-right: 85px;
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
 }
 
 .mii-card-corner {
@@ -461,6 +465,17 @@ a.btn-discord:hover {
   right: -24px;
   top: -42px;
   height: 165px;
+  width: auto;
+  z-index: 10;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.65));
+  pointer-events: none;
+}
+
+.mii-card-corner-lounging {
+  position: absolute;
+  right: -18px;
+  top: -50px;
+  height: 140px;
   width: auto;
   z-index: 10;
   filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.65));
