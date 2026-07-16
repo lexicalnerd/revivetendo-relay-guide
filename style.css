@@ -439,8 +439,8 @@ a.btn-discord:hover {
 .stagger-in {
   opacity: 0;
   visibility: hidden;
-  animation: staggerFadeUp 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: calc(1.08s + var(--stagger-order, 0) * 0.14s);
+  animation: staggerFadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 1.08s;
 }
 
 .hero-description {
