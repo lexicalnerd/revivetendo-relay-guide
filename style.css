@@ -432,48 +432,108 @@ a.btn-discord:hover {
   flex-wrap: wrap;
 }
 
-/* Mii Characters Placed Around Webpage */
-.mii-hero-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 2.5rem;
+/* Mii Characters Placed Around Webpage (Large & Overlapping Content) */
+.hero-section {
+  position: relative;
+  overflow: visible !important;
 }
 
-.mii-hero-img {
-  max-height: 140px;
-  width: auto;
-  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.4));
+.content-section,
+.feature-grid,
+.feature-card,
+.step-card {
+  position: relative;
+  overflow: visible !important;
 }
 
-.mii-card-container {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.mii-side-img {
-  max-width: 130px;
-  height: auto;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.35));
-}
-
-.mii-card-right {
+.mii-overlap-hero {
   position: absolute;
-  right: 2rem;
-  bottom: 1.5rem;
-  max-height: 110px;
+  right: -25px;
+  bottom: -45px;
+  height: 270px;
   width: auto;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.35));
+  z-index: 10;
+  filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.7));
+  transform: rotate(4deg);
   pointer-events: none;
 }
 
-@media (max-width: 768px) {
-  .mii-card-right {
-    position: static;
-    margin-top: 1rem;
-    max-height: 100px;
+.mii-overlap-card-1 {
+  position: absolute;
+  top: -60px;
+  right: 10px;
+  height: 220px;
+  width: auto;
+  z-index: 5;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.65));
+  pointer-events: none;
+}
+
+.mii-overlap-card-2 {
+  position: absolute;
+  bottom: -40px;
+  right: -25px;
+  height: 230px;
+  width: auto;
+  z-index: 5;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.65));
+  transform: rotate(-3deg);
+  pointer-events: none;
+}
+
+.mii-overlap-banner {
+  position: absolute;
+  top: -85px;
+  left: 35px;
+  height: 215px;
+  width: auto;
+  z-index: 10;
+  filter: drop-shadow(0 14px 32px rgba(0, 0, 0, 0.65));
+  pointer-events: none;
+}
+
+.mii-overlap-step {
+  position: absolute;
+  right: 1.5rem;
+  top: -40px;
+  height: 245px;
+  width: auto;
+  z-index: 5;
+  filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.65));
+  pointer-events: none;
+}
+
+.mii-overlap-step-4 {
+  position: absolute;
+  right: 2rem;
+  bottom: -30px;
+  height: 255px;
+  width: auto;
+  z-index: 5;
+  filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.65));
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .mii-overlap-hero,
+  .mii-overlap-card-1,
+  .mii-overlap-card-2,
+  .mii-overlap-banner,
+  .mii-overlap-step,
+  .mii-overlap-step-4 {
+    height: 160px;
+    opacity: 0.9;
+  }
+}
+
+@media (max-width: 600px) {
+  .mii-overlap-hero,
+  .mii-overlap-card-1,
+  .mii-overlap-card-2,
+  .mii-overlap-banner,
+  .mii-overlap-step,
+  .mii-overlap-step-4 {
+    display: none;
   }
 }
 
