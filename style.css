@@ -367,10 +367,12 @@ a.btn-discord:hover {
 
 /* Landing Page Hero Section */
 .hero-section {
-  padding: 5rem 0 4rem;
-  border-bottom: 1px solid var(--border-color);
-  margin-bottom: 4rem;
+  padding: 5rem 0 3rem;
+  border-bottom: none !important;
+  margin-bottom: 3rem;
   text-align: center;
+  position: relative;
+  overflow: visible !important;
 }
 
 .hero-icon {
@@ -432,107 +434,82 @@ a.btn-discord:hover {
   flex-wrap: wrap;
 }
 
-/* Mii Characters Placed Around Webpage (Large & Overlapping Content) */
-.hero-section {
-  position: relative;
-  overflow: visible !important;
-}
-
+/* Mii Characters Placed Inside Blank Box Areas & Popping Out-of-Bounds */
 .content-section,
 .feature-grid,
 .feature-card,
-.step-card {
+.step-card,
+.info-box,
+.requirements-list {
   position: relative;
   overflow: visible !important;
 }
 
-.mii-overlap-hero {
+/* Boxes/Cards that hold a Mii get right padding so text wraps cleanly before the Mii */
+.info-box.has-mii,
+.feature-card.has-mii {
+  padding-right: 145px !important;
+  min-height: 165px;
+}
+
+.mii-box-overlap-bottom {
   position: absolute;
-  right: -25px;
-  bottom: -45px;
-  height: 270px;
+  right: -12px;
+  bottom: -24px;
+  height: 185px;
+  width: auto;
+  z-index: 5;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.6));
+  pointer-events: none;
+}
+
+.mii-box-overlap-top {
+  position: absolute;
+  right: -12px;
+  top: -30px;
+  height: 180px;
+  width: auto;
+  z-index: 5;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.6));
+  pointer-events: none;
+}
+
+.mii-hero-overlap {
+  position: absolute;
+  right: 4%;
+  top: 55px;
+  height: 200px;
+  width: auto;
+  z-index: 5;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.6));
+  pointer-events: none;
+}
+
+.mii-banner-top {
+  position: absolute;
+  top: -65px;
+  right: 6%;
+  height: 155px;
   width: auto;
   z-index: 10;
-  filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.7));
-  transform: rotate(4deg);
-  pointer-events: none;
-}
-
-.mii-overlap-card-1 {
-  position: absolute;
-  top: -60px;
-  right: 10px;
-  height: 220px;
-  width: auto;
-  z-index: 5;
-  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.65));
-  pointer-events: none;
-}
-
-.mii-overlap-card-2 {
-  position: absolute;
-  bottom: -40px;
-  right: -25px;
-  height: 230px;
-  width: auto;
-  z-index: 5;
-  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.65));
-  transform: rotate(-3deg);
-  pointer-events: none;
-}
-
-.mii-overlap-banner {
-  position: absolute;
-  top: -85px;
-  left: 35px;
-  height: 215px;
-  width: auto;
-  z-index: 10;
-  filter: drop-shadow(0 14px 32px rgba(0, 0, 0, 0.65));
-  pointer-events: none;
-}
-
-.mii-overlap-step {
-  position: absolute;
-  right: 1.5rem;
-  top: -40px;
-  height: 245px;
-  width: auto;
-  z-index: 5;
-  filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.65));
-  pointer-events: none;
-}
-
-.mii-overlap-step-4 {
-  position: absolute;
-  right: 2rem;
-  bottom: -30px;
-  height: 255px;
-  width: auto;
-  z-index: 5;
-  filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.65));
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.6));
   pointer-events: none;
 }
 
 @media (max-width: 900px) {
-  .mii-overlap-hero,
-  .mii-overlap-card-1,
-  .mii-overlap-card-2,
-  .mii-overlap-banner,
-  .mii-overlap-step,
-  .mii-overlap-step-4 {
-    height: 160px;
-    opacity: 0.9;
+  .mii-hero-overlap {
+    display: none;
   }
 }
 
 @media (max-width: 600px) {
-  .mii-overlap-hero,
-  .mii-overlap-card-1,
-  .mii-overlap-card-2,
-  .mii-overlap-banner,
-  .mii-overlap-step,
-  .mii-overlap-step-4 {
+  .info-box.has-mii,
+  .feature-card.has-mii {
+    padding-right: 1.4rem !important;
+  }
+  .mii-box-overlap-bottom,
+  .mii-box-overlap-top,
+  .mii-banner-top {
     display: none;
   }
 }
@@ -542,11 +519,11 @@ a.btn-discord:hover {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 3rem 2rem;
+  padding: 3.5rem 2rem 3rem;
   text-align: center;
   margin-bottom: 4rem;
   position: relative;
-  overflow: hidden;
+  overflow: visible !important;
 }
 
 .quick-start-banner h2 {
